@@ -1,0 +1,121 @@
+.btn {
+  width: 90%;
+  height: 60px;
+  outline: 0;
+  border: 1px solid #ecc2c2;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
+  background: #bed2f1;
+  box-shadow: 0 0 5px #bed2f1;
+}
+
+.pop-container {
+  display: none;
+  position: fixed;
+  top:0;
+  bottom:0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(238, 228, 218, 0.8);
+  z-index: -1;
+  transition: all .5s ease;
+  opacity: 0;
+  font-size: 40px;
+  font-weight: bold;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  -o-transition: all .5s ease;
+}
+.start-container.pop-container {
+  background: rgba(238, 228, 218, 1);
+}
+
+.pop-container.action {
+  opacity: 1;
+  z-index: 999;
+}
+
+.pop-container p:nth-child(1) {
+  font-size: 60px;
+}
+
+.winning-container p:nth-child(1),.start-container p:nth-child(1)  {
+  transform: rotate(90deg);
+}
+.start-container p:nth-child(1) {
+  transform-origin: center;
+  animation: winning 1.5s infinite;
+  -webkit-animation: winning 1.5s infinite;
+}
+.winning-container.action p:nth-child(1) {
+  transform-origin: center;
+  animation: winning 1.5s infinite;
+  -webkit-animation: winning 1.5s infinite;
+}
+
+.failure-container.action p:nth-child(1) {
+  transform-origin: center;
+  animation: failure 5s infinite;
+}
+
+@keyframes winning {
+  0%,
+  25%,
+  50%,
+  75%,
+  100% {
+    transform: rotate(90deg) translateX(-5px);
+  }
+
+  12.5% {
+    transform: rotate(80deg);
+  }
+
+  37.5% {
+    transform: rotate(70deg);
+  }
+
+  62.5% {
+    transform: rotate(100deg);
+  }
+
+  87.5% {
+    transform: rotate(120deg);
+  }
+}
+
+@keyframes failure {
+
+  0%,
+  25%,
+  50%,
+  75%,
+  100% {
+    transform: rotate(90deg) scale(0.7, 1) rotateX(40deg);
+  }
+
+  12.5% {
+    transform: rotate(90deg);
+  }
+
+  37.5% {
+    transform: rotate(90deg);
+  }
+
+  62.5% {
+    transform: rotate(90deg);
+  }
+
+  87.5% {
+    transform: rotate(90deg);
+  }
+}

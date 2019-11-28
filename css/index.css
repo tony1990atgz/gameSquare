@@ -1,0 +1,84 @@
+  .game-wrapper {
+    display: flex;
+  }
+
+  .main {
+    margin-right: 50px;
+  }
+
+  .main-box {
+    height: 100%;
+    position: relative;
+  }
+
+  .sub {
+    width: 200px;
+  }
+
+  .sub .title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+
+  #score {
+    color: red;
+    position: relative;
+  }
+ .score-animation {
+   color: pink;
+   position: absolute;
+   left: 10px;
+   top: 30px;
+   display: none;
+   transition: all 1s ;
+   -webkit-transition: all 1s ;
+   -moz-transition: all 1s ;
+   -ms-transition: all 1s ;
+   -o-transition: all 1s ;
+}
+ .score-animation.action {
+  opacity: 0;
+  top: 0;
+}
+  .sub-box {
+    border: 2px solid orange;
+    border-radius:10px;
+    position: relative;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    -ms-border-radius:10px;
+    -o-border-radius:10px;
+}
+
+  .square {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    box-sizing: border-box;
+    border:2px solid #efefef;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+  .square.none {
+    background: #fff;
+  }
+  .square.disappear {
+    background: url('../images/disapear.gif') !important;
+    background-size: 100% 100%;
+  }
+
+  .square.current {
+    border: 1px solid red;
+    background: pink;
+  }
+
+  .square.exist {
+    border: 1px solid black;
+    background: grey;
+  }
+

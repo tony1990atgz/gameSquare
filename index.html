@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/animation.css">
+</head>
+<body>
+  <div class="game-wrapper">
+    <div class="main">
+      <div class="main-box"></div>
+    </div>
+    <div class="sub">
+      <h3>拿到<span class='win-score'>10</span>分就能赢~</h3>
+      <div class="title">
+        score: 
+        <span style='position: relative;'>
+          <span id='score'>0</span>
+          <div class='score-animation'>0</div>
+        </span>
+      </div>
+      <div class="sub-box"></div>
+      <h3>上下左右箭头移动，空格变形【可以向上走】</h3>
+    </div>
+  </div>
+
+  <div class="start-container action pop-container">
+    <p>:)</span></p>
+    <button class='start btn'>start</button>
+  </div>
+  <div class="failure-container  pop-container">
+    <p>:(</span></p>
+    <p>失败了</p>
+    <button class='fail-again btn'>再来一次记</button>
+  </div>
+  <div class="winning-container  pop-container">
+    <p>:)</p>
+    <p>赢了， NB！</p>
+    <button class='win-again btn'>再来一次记</button>
+  </div>
+</body>
+
+<script src="./js/data.js"></script>
+<script src="./js/unit.js"></script>
+<script src="./js/factory.js"></script>
+<script src="./js/scene.js"></script>
+<script src="./js/game.js"></script>
+<script src="./js/event.js"></script>
+<!-- <script src="./js/index.js"></script> -->
+
+<script>
+const start = document.querySelector('.start')
+const startcontainer = document.querySelector('.start-container')
+start.onclick = () => {
+  var view = new View()
+  /**
+   * interval 坠落一格的时间，单位毫秒
+   * cols 游戏区域的列
+   * rows 方块区域的行
+   * winscore 赢需要的分数
+   * test 自动坠落测试
+   * */
+  var game = new Game({
+    interval: 500,
+    cols: 20,
+    rows: 20,
+    // width: 114,
+    // height: 64,
+    winscore: 20,
+    test: false
+  })
+  game.init(view)
+  event(game)
+  startcontainer.classList.remove('action')
+}
+</script>
+</html>
